@@ -8,7 +8,7 @@ init();
 // Display logo text, load main prompts
 function init() {
   // Utilize asciiart-logo
-  const logoText = logo({ name: "Employee Manager" }).render();
+  const logoText = logo({ name: "Employee Tracker" }).render();
 
   console.log(logoText);
 
@@ -77,7 +77,7 @@ async function loadMainPrompts() {
       return addEmployee();
     case "UPDATE_EMPLOYEE_ROLE":
       return updateEmployeeRole();
-    
+
     // QUIT
     default:
       return quit();
@@ -108,7 +108,6 @@ async function addDepartment() {
   // UNCOMMENT the following line and add your code
   // await db.YOUR_DB_FUNCTION(YOUR_DEPT_VARIABLE);
 
-  
   console.log("Added " + YOUR_DEPT_NAME + " to the database");
 
   loadMainPrompts();
@@ -118,7 +117,6 @@ async function viewRoles() {
   // Using await to call database function to find all roles and assign the resultant array to a variable
   // UNCOMMENT the following line and add your code
   // const roles = await db.YOUR_DB_FUNCTION();
-
 
   console.log("\n");
   console.table(roles);
@@ -161,7 +159,7 @@ async function addRole() {
 }
 
 async function viewEmployees() {
-  // Using await keyword to call database function to find all employees and assign the returned result to a variable 
+  // Using await keyword to call database function to find all employees and assign the returned result to a variable
   const YOUR_EMP_VAR = await db.YOUR_DB_FUNCTION_TO_FIND_ALL_EMPS();
 
   console.log("\n");
@@ -170,23 +168,24 @@ async function viewEmployees() {
   loadMainPrompts();
 }
 
-
 async function updateEmployeeRole() {
   // Create an employee variable to store the array returned from database find all employees function using await
   const YOUR_EMP_VAR = await db.YOUR_DB_FUNCTION_TO_FIND_ALL();
 
   // With the array variable from above, create a new array for objects for each element in the array variable
-  const YOUR_EMP_CHOICES = YOUR_EMP_VAR.map(({ id, first_name, last_name }) => ({
-    name: `${first_name} ${last_name}`,
-    value: id,
-  }));
+  const YOUR_EMP_CHOICES = YOUR_EMP_VAR.map(
+    ({ id, first_name, last_name }) => ({
+      name: `${first_name} ${last_name}`,
+      value: id,
+    })
+  );
 
   const { employeeId } = await prompt([
     {
       type: "list",
       name: "employeeId",
       message: "YOUR_QUESTION",
-      choices: YOUR_EMP_CHOICES, 
+      choices: YOUR_EMP_CHOICES,
     },
   ]);
 
@@ -214,7 +213,6 @@ async function updateEmployeeRole() {
 }
 
 async function addEmployee() {
-
   const employee = await prompt([
     {
       name: "first_name",
