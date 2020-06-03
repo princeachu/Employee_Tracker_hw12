@@ -24,40 +24,40 @@ async function loadMainPrompts() {
       choices: [
         {
           name: "View All Roles",
-          value: "VIEW_ROLES",
+          value: "VIEW_ROLES"
         },
         {
           name: "Add Role",
-          value: "ADD_ROLE",
+          value: "ADD_ROLE"
         },
         {
           name: "View All Departments",
-          value: "VIEW_DEPARTMENTS",
+          value: "VIEW_DEPARTMENTS"
         },
         {
           name: "Add Department",
-          value: "ADD_DEPARTMENT",
+          value: "ADD_DEPARTMENT"
         },
         {
           name: "View All Employees",
-          value: "VIEW_EMPLOYEES",
+          value: "VIEW_EMPLOYEES"
         },
         {
           name: "Add Employee",
-          value: "ADD_EMPLOYEE",
+          value: "ADD_EMPLOYEE"
         },
         {
           name: "Update Employee Role",
-          value: "UPDATE_EMPLOYEE_ROLE",
+          value: "UPDATE_EMPLOYEE_ROLE"
         },
 
         // Quit
         {
           name: "Quit",
-          value: "QUIT",
-        },
-      ],
-    },
+          value: "QUIT"
+        }
+      ]
+    }
   ]);
 
   // Call the appropriate function depending on what the user chose
@@ -100,8 +100,8 @@ async function addDepartment() {
   const YOUR_DEPT_VARIABLE = await prompt([
     {
       name: "name",
-      message: "What is the name of the department?",
-    },
+      message: "What is the name of the department?"
+    }
   ]);
 
   // Using await to call database function to create department and assign the result to a variable
@@ -130,24 +130,24 @@ async function addRole() {
 
   const YOUR_DEPT_CHOICES = YOUR_ROLE_VAR.map(({ id, name }) => ({
     name: name,
-    value: id,
+    value: id
   }));
 
   const role = await prompt([
     {
       name: "title",
-      message: "What is the name of the role?",
+      message: "What is the name of the role?"
     },
     {
       name: "salary",
-      message: "What is the salary of the role?",
+      message: "What is the salary of the role?"
     },
     {
       type: "list",
       name: "department_id",
       message: "Which department does the role belong to?",
-      choices: YOUR_DEPT_CHOICES,
-    },
+      choices: YOUR_DEPT_CHOICES
+    }
   ]);
 
   // UNCOMMENT below to call database function to create role
@@ -176,7 +176,7 @@ async function updateEmployeeRole() {
   const YOUR_EMP_CHOICES = YOUR_EMP_VAR.map(
     ({ id, first_name, last_name }) => ({
       name: `${first_name} ${last_name}`,
-      value: id,
+      value: id
     })
   );
 
@@ -185,15 +185,15 @@ async function updateEmployeeRole() {
       type: "list",
       name: "employeeId",
       message: "YOUR_QUESTION",
-      choices: YOUR_EMP_CHOICES,
-    },
+      choices: YOUR_EMP_CHOICES
+    }
   ]);
 
   const YOUR_ROLES_VAR = await db.YOUR_DB_FUNCTION_FOR_ALL_ROLES();
 
   const YOUR_ROLE_CHOICES = YOUR_ROLES_VAR.map(({ id, title }) => ({
     name: title,
-    value: id,
+    value: id
   }));
 
   const { roleId } = await prompt([
@@ -201,8 +201,8 @@ async function updateEmployeeRole() {
       type: "list",
       name: "roleId",
       message: "YOUR_QUESTION_FOR_ROLE",
-      choices: YOUR_ROLE_CHOICES,
-    },
+      choices: YOUR_ROLE_CHOICES
+    }
   ]);
 
   await db.YOUR_DB_FUNCTION_FOR_UPDATE(employeeId, roleId);
@@ -216,12 +216,12 @@ async function addEmployee() {
   const employee = await prompt([
     {
       name: "first_name",
-      message: "What is the employee's first name?",
+      message: "What is the employee's first name?"
     },
     {
       name: "last_name",
-      message: "What is the employee's last name?",
-    },
+      message: "What is the employee's last name?"
+    }
   ]);
 
   // Prompt for role choices
