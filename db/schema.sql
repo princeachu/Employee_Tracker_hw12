@@ -9,13 +9,12 @@ CREATE TABLE department
     (30) unique NOT NULL 
 );
 
-    CREATE TABLE role
-    (
+    CREATE TABLE role(
         id INT
         unsigned auto_increment PRIMARY KEY,
     title VARCHAR
         (30) NOT NULL,
-    salary DECIMAL unsigned NOT NULL
+    salary DECIMAL unsigned NOT NULL,
     department_id INT unsigned NOT NULL
 
 );
