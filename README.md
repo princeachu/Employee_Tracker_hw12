@@ -18,7 +18,7 @@ Employee tracker is a backend application that allows a user to manage an emploe
 ## Installation
 
 To install the neccassary dependencies run the following commands in the terminal:
-Run npm install to download all the neccassary dependencies found in package.json.
+Run `npm install` to download all the neccassary dependencies found in package.json.
 
 ## Usage
 
