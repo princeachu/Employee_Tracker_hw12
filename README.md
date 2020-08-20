@@ -26,6 +26,8 @@ Run `npm install` to download all the neccassary dependencies found in package.j
 
 Enter your terminal through the main directory and type in `node index.js` to start the application.
 
+![Screenshot](https://user-images.githubusercontent.com/63522610/90834125-7d0d5480-e317-11ea-9447-282c2a8d9415.png)
+
 APP DEMONSTRATION:
 [Link](https://drive.google.com/file/d/1H_2Gtp55Atx3QLx59Y_YRdFJQiO1jPAx/view)
 
